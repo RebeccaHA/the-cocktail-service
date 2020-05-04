@@ -28,7 +28,7 @@ class CabinetController < ApplicationController
            
             cabinet.ingredients.detect do |ingredient|
                
-                cocktail.ingredients.include?(ingredient.name)
+                cocktail.ingredients.include?(ingredient)
         
               
             end
