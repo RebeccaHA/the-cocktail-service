@@ -1,6 +1,6 @@
 class Ingredient < ActiveRecord::Base
-    belongs_to :cabinet
-    belongs_to :cocktail
+    has_many :cabinets, through: :cabinets_ingredients
+    has_many :cocktails, through: :cocktails_ingredients
    
  
     validates :name, presence: true
