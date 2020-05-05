@@ -1,7 +1,6 @@
 class Cabinet  < ActiveRecord::Base
-    has_and_belongs_to_many :cocktails
     has_many :ingredients
-
+    has_many :cocktails, through: :ingredients
     validates :name, presence: true
    
 

@@ -7,8 +7,6 @@ class CreateCocktailsTable < ActiveRecord::Migration
       t.string  "glassware"
       t.string  "glassware_img"
       t.string  "method"
-      t.integer "cabinet_id"
-      t.integer "ingredient_id"
     end
   end
 end

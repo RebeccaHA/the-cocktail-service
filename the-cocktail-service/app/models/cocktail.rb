@@ -1,6 +1,7 @@
 class Cocktail  < ActiveRecord::Base
-    has_and_belongs_to_many :cabinets
     has_many :ingredients
+    has_many :cabinets, through: :ingredients
+    
 
     validates :name, presence: true
    

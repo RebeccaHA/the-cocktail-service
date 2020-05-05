@@ -11,7 +11,7 @@ class CabinetController < ApplicationController
 
 
         params[:ingredients].each do |ingredient|
-            i = Ingredient.create(ingredient)
+            i = Ingredient.find_or_create_by_name( name: 'ingredient.name')
             i.cabinet = cabinet
             i.save 
         end 

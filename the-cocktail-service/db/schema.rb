@@ -18,14 +18,12 @@ ActiveRecord::Schema.define(version: 20200501202715) do
   end
 
   create_table "cocktails", force: :cascade do |t|
-    t.string  "name"
-    t.string  "description"
-    t.string  "garnish"
-    t.string  "glassware"
-    t.string  "glassware_img"
-    t.string  "method"
-    t.integer "cabinet_id"
-    t.integer "ingredient_id"
+    t.string "name"
+    t.string "description"
+    t.string "garnish"
+    t.string "glassware"
+    t.string "glassware_img"
+    t.string "method"
   end
 
   create_table "ingredients", force: :cascade do |t|
