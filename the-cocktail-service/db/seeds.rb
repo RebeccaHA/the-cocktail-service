@@ -13,7 +13,7 @@ csv = CSV.open('db/test1.csv', headers: :first_row).map(&:to_h)
         cocktail.glassware = row['glassware']
         cocktail.method = row['method']
         cocktail.garnish = row['garnish']
-     
+  
 
         ingredients_array = row['ingredients'].split(",")
         ingredients_array.each do |ingredient|

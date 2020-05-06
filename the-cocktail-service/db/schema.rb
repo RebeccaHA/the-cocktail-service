@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(version: 20200505191935) do
   create_table "ingredients", force: :cascade do |t|
     t.string  "name"
     t.integer "quantity"
-    t.integer "cabinet_id"
-    t.integer "cocktail_id"
   end
 
 end

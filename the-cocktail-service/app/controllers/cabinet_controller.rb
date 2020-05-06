@@ -11,8 +11,8 @@ class CabinetController < ApplicationController
 
 
         params[:ingredients].each do |ingredient|
-            i = Ingredient.find_or_create_by_name( name: 'ingredient.name')
-            i.cabinet = cabinet
+            i = Ingredient.find_or_create_by( name: ingredient[:name])
+            i.cabinets << cabinet
             i.save 
         end 
      
@@ -24,16 +24,8 @@ class CabinetController < ApplicationController
 
     get '/cabinets/:id/cocktails' do
         cabinet = Cabinet.find_by_id(params[:id])
-        cocktails = Cocktail.all.select do |cocktail|
-           
-            cabinet.ingredients.detect do |ingredient|
-               
-                cocktail.ingredients.include?(ingredient)
-        
-              
-            end
-           
-        end
+        cocktails = cabinet.cocktails
+       
         cocktails.to_json(:include=> [:ingredients])
 
     end
