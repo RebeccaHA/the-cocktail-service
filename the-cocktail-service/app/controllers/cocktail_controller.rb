@@ -20,18 +20,20 @@ class CocktailController < ApplicationController
             matches = 0
 
             ingredients.detect do |ingredient|
-              if cocktail.ingredients.downcase.include?(ingredient.name.downcase)
-                matches+=  1  
+              if cocktail.ingredients.include?(ingredient)
+                matches +=  1  
+          
               end
             end
-        end
+        
              if matches 
-                percent = (matches/cocktail.ingredient.count)*100
-                 cocktail_as_data = cocktail.to_h
-                 cocktail_as_data["percent_match"] = percent
-                 filtered_cocktails << cocktail_as_data
+                percent = (matches/cocktail.ingredients.count)*100
+                cocktail_as_data = cocktail.as_json
+                 cocktail_as_data[:percent_match] = percent
+                 cocktail.save
+                 filtered_cocktails << cocktail
              end
-
+            end
         # sort_array by sort method,also add a minimum cut off percentage
         filtered_cocktails.to_json(:include=> [:ingredients])
             end
