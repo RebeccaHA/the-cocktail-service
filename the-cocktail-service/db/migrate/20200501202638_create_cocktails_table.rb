@@ -7,6 +7,7 @@ class CreateCocktailsTable < ActiveRecord::Migration
       t.string  "glassware"
       t.string  "glassware_img"
       t.string  "method"
+      t.float "percent_match"
     end
   end
 end

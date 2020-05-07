@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20200505191935) do
 
-  create_table "cabinets", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "cabinets_ingredients", force: :cascade do |t|
-    t.integer "cabinet_id"
-    t.integer "ingredient_id"
-  end
-
   create_table "cocktails", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -29,6 +20,7 @@ ActiveRecord::Schema.define(version: 20200505191935) do
     t.string "glassware"
     t.string "glassware_img"
     t.string "method"
+    t.float  "percent_match"
   end
 
   create_table "cocktails_ingredients", force: :cascade do |t|
